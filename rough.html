@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Day 💕 Rajeev & Jyoti Priya</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff007f, #ff1493, #ff69b4);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            min-height: 100vh;
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            animation: float 6s linear infinite;
+            opacity: 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .rose-container {
+            position: relative;
+            margin: 50px auto;
+            width: 200px;
+            height: 200px;
+        }
+
+        .rose {
+            font-size: 150px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            color: #ff1493;
+            margin: 20px 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .petals {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .petal {
+            position: absolute;
+            color: #ff69b4;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="petals" id="petals"></div>
+    
+    <div class="container">
+        <h1>Happy Rose Day 💖</h1>
+        
+        <div class="rose-container">
+            <div class="rose">🌹</div>
+        </div>
+
+        <div class="message">
+            <div class="names">
+                <span class="rajeev">Rajeev</span> 
+                <span class="heartbeat">💝</span> 
+                <span class="jyoti">Jyoti Priya</span>
+            </div>
+            <p>May our bond blossom like the most beautiful rose,<br>
+            Growing stronger with each petal that unfolds. 🌹</p>
+        </div>
+
+        <div class="message" style="animation-delay: 0.5s">
+            <p>"Every rose speaks the language of love,<br>
+            Today I send you a garden full! 💐"</p>
+        </div>
+    </div>
+
+    <script>
+        // Create falling hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.innerHTML = '♥';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Create falling petals
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            for (let i = 0; i < 30; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+                petal.style.fontSize = Math.random() * 10 + 10 + 'px';
+                petal.innerHTML = '🌸';
+                petalsContainer.appendChild(petal);
+            }
+        }
+
+        // Initialize animations
+        window.onload = function() {
+            createHearts();
+            createPetals();
+            
+            // Add hover effect for names
+            document.querySelector('.rajeev').addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.color = '#ff007f';
+            });
+            
+            document.querySelector('.jyoti').addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.color = '#ff007f';
+            });
+
+            document.querySelector('.rajeev').addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+                this.style.color = '#ff1493';
+            });
+
+            document.querySelector('.jyoti').addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+                this.style.color = '#ff1493';
+            });
+        };
+    </script>
+</body>
+</html>
